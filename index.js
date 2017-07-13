@@ -37,9 +37,9 @@ function ABARoutingNumberIsValid(routingNumberToTest) {
   //http://www.siccolo.com/Articles/SQLScripts/how-to-create-sql-to-calculate-routing-check-digit.html
   const weights = [3, 7 ,1];
   var sum = 0;
-  for (var i=0 ; i<8; i++) {
+  for (var i=0 ; i<9; i++) {
     sum += parseInt(routing[i]) * weights[i % 3];
   }
 
-  return (10 - (sum % 10)) % 10 === parseInt(routing[8]);
+  return sum % 10 === 0;
 }
